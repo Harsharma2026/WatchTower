@@ -1,0 +1,28 @@
+global:
+  scrape_interval: 15s
+  evaluation_interval: 15s
+
+scrape_configs:
+  - job_name: 'prometheus'
+    static_configs:
+      - targets: ['localhost:9090']
+
+  - job_name: 'watchtower-backend'
+    static_configs:
+      - targets: ['watchtower-backend:5001']
+
+  - job_name: 'watchtower-api-gateway'
+    static_configs:
+      - targets: ['watchtower-gateway:3000']
+
+  - job_name: 'watchtower-service-a'
+    static_configs:
+      - targets: ['watchtower-service-a:3001']
+
+  - job_name: 'watchtower-service-b'
+    static_configs:
+      - targets: ['watchtower-service-b:3002']
+
+  - job_name: 'node-exporter'
+    static_configs:
+      - targets: ['node-exporter:9100']
